@@ -18,32 +18,49 @@ package labs.pm.data;
 
 import java.math.BigDecimal;
 import static java.math.RoundingMode.HALF_UP;
+import static labs.pm.data.Rating.*;
 
 /**
- * {@code Product} class represents properties and behaviours of
- * product objects in the Product Management System.
+ * {@code Product} class represents properties and behaviours of product objects
+ * in the Product Management System.
  * <br>
  * Each product has an id, name, and price
  * <br>
  * Each product can have a discount, calculated based on a
  * {@link DISCOUNT_RATE discount rate}
+ *
  * @version 4.0
  * @author gpbonillas
  */
 public class Product {
-    
+
     private int id;
     private String name;
     private BigDecimal price;
     private Rating rating;
-    
+
     /**
-     * A constant that defines a 
-     * {@link java.math.BigDecimal BigDecimal} value of the discount rate
+     * A constant that defines a {@link java.math.BigDecimal BigDecimal} value
+     * of the discount rate
      * <br>
      * Discount rate is 10%
      */
     public static final BigDecimal DISCOUNT_RATE = BigDecimal.valueOf(0.1);
+
+    public Product() {
+        this(0, "no name", BigDecimal.ZERO);
+    }
+
+    public Product(int id, String name, BigDecimal price, Rating rating) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    public Product(int id, String name, BigDecimal price) {
+        this(id, name, price, NOT_RATED);
+    }
 
     public int getId() {
         return id;
@@ -69,11 +86,11 @@ public class Product {
 //        price = BigDecimal.ONE;
         this.price = price;
     }
-    
+
     /**
-     * Calculates discount based on a product price and 
+     * Calculates discount based on a product price and
      * {@link DISCOUNT_RATE discount rate}
-     * 
+     *
      * @return a {@link java.math.BigDecimal BigDecimal} value of the discount
      */
     public BigDecimal getDiscount() {
