@@ -18,6 +18,7 @@ package labs.pm.data;
 
 import java.math.BigDecimal;
 import static java.math.RoundingMode.HALF_UP;
+import java.util.Objects;
 import static labs.pm.data.Rating.*;
 
 /**
@@ -103,6 +104,28 @@ public class Product {
     
     public Product applyRating(Rating newRating) {
         return new Product(this.id, this.name, this.price, newRating);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + this.id;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) {
+            return true;
+        }
+        
+        //if(obj != null && getClass() == obj.getClass()) {
+        if(obj instanceof Product) {
+            final Product other = (Product) obj;
+            return this.id == other.id && Objects.equals(this.name, other.name);
+        }
+        
+        return false;
     }
 
     @Override
