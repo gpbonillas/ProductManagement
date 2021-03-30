@@ -104,4 +104,9 @@ public class Product {
     public Product applyRating(Rating newRating) {
         return new Product(this.id, this.name, this.price, newRating);
     }
+
+    @Override
+    public String toString() {
+        return id + ", " + name + ", " + price + ", " + rating.getStars();
+    }
 }
