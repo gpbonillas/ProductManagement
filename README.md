@@ -19,3 +19,8 @@ Tiene la solución a las lecciones:
    * Override Methods and Use Polymorphism Part. 2
    * Override Methods and Use Polymorphism Part. 3
    * Create Factory Methods
+
+7. Interfaces
+   * Design the Rateable Interface. Practice 7-1
+   * Enable Products Review and Rating. Practice 7-2
+   * Test the Product Review Functionality. Practice 7-3
