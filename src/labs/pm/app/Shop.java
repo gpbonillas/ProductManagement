@@ -18,6 +18,7 @@ package labs.pm.app;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Locale;
 import labs.pm.data.Drink;
 import labs.pm.data.Food;
 import labs.pm.data.Product;
@@ -37,7 +38,7 @@ public class Shop {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ProductManager pm = new ProductManager();
+        ProductManager pm = new ProductManager(Locale.UK);
         
         Product p1 = pm.createProduct(101, "Tea", BigDecimal.valueOf(1.99), Rating.THREE_STAR);
         
