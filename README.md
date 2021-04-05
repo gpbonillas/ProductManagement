@@ -24,3 +24,6 @@ Tiene la solución a las lecciones:
    * Design the Rateable Interface. Practice 7-1
    * Enable Products Review and Rating. Practice 7-2
    * Test the Product Review Functionality. Practice 7-3
+
+8. Arrays and Loops
+   * Allow Multiple Reviews for a Product. Practice 8-1
