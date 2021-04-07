@@ -80,11 +80,6 @@ public abstract class Product implements Rateable<Product>{
         return price;
     }
 
-//    public void setPrice(final BigDecimal price) {
-////        price = BigDecimal.ONE;
-//        this.price = price;
-//    }
-
     /**
      * Calculates discount based on a product price and
      * {@link DISCOUNT_RATE discount rate}
@@ -99,9 +94,6 @@ public abstract class Product implements Rateable<Product>{
     public Rating getRating() {
         return rating;
     }
-    
-    //public abstract Product applyRating(Rating newRating);
-    
     
     /**
      * Get the value of the best before date for the product
@@ -124,11 +116,10 @@ public abstract class Product implements Rateable<Product>{
         if(this == obj) {
             return true;
         }
-        
-        //if(obj != null && getClass() == obj.getClass()) {
+                
         if(obj instanceof Product) {
             final Product other = (Product) obj;
-            return this.id == other.id && Objects.equals(this.name, other.name);
+            return this.id == other.id;
         }
         
         return false;
