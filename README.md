@@ -27,3 +27,7 @@ Tiene la solución a las lecciones:
 
 8. Arrays and Loops
    * Allow Multiple Reviews for a Product. Practice 8-1
+
+9. Collections
+   * Organize Products and Reviews into a HashMap. Practice 9-1
+   * Implement Review Sort and Product Search Features. Practice 9-2
