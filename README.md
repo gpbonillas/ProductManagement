@@ -32,6 +32,7 @@ Tiene la solución a las lecciones:
    * Organize Products and Reviews into a HashMap. Practice 9-1
    * Implement Review Sort and Product Search Features. Practice 9-2
 
+
 10. Nested Classes and Lambda Expressions
    * Refactor ProductManager to use a Nested Class. Practice 10-1
    * Produce Customized Product Reports. Practice 10-2
