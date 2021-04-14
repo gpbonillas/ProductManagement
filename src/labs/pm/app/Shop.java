@@ -71,12 +71,14 @@ public class Shop {
         pm.reviewProduct(106, Rating.TWO_STAR, "Too sweet");
         pm.reviewProduct(106, Rating.THREE_STAR, "Better then cookie");
         pm.reviewProduct(106, Rating.TWO_STAR, "Too bitter");
-        pm.reviewProduct(106, Rating.ONE_STAR, "I don't get it!");
+        pm.reviewProduct(106, Rating.ONE_STAR, "I don't get it!");        
+        pm.printProductReport(106);        
+        
+        pm.printProducts(p -> p.getPrice().floatValue() < 2, (p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal());
         
         Comparator<Product> ratingSorter = (p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal();
         Comparator<Product> priceSorter = (p1, p2) -> p2.getPrice().compareTo(p1.getPrice());
-        pm.printProducts(ratingSorter.thenComparing(priceSorter));
-        pm.printProducts(ratingSorter.thenComparing(priceSorter).reversed());        
+    
         
     }
     
