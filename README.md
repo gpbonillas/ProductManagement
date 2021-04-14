@@ -36,8 +36,6 @@ Tiene la solución a las lecciones:
     * Refactor ProductManager to use a Nested Class. Practice 10-1
     * Produce Customized Product Reports. Practice 10-2
 
-
-
-
-
-
+11. Java Streams API
+    * Modify ProductManager to Use Streams. Practice 11-1
+    * Add Discount Per Rating Calculation. Practice 11-2
