@@ -39,3 +39,9 @@ Tiene la solución a las lecciones:
 11. Java Streams API
     * Modify ProductManager to Use Streams. Practice 11-1
     * Add Discount Per Rating Calculation. Practice 11-2
+
+12. Handle Exceptions and Fix Bugs
+    * Use Exception Handling to Fix Logical Errors (Part 1). Practice 12-1
+    * Use Exception Handling to Fix Logical Errors (Part 2). Practice 12-1
+    * Add Text Parsing Operations (Part 1). Practice 12-2
+    * Add Text Parsing Operations (Part 2). Practice 12-2
