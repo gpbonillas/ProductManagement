@@ -45,3 +45,9 @@ Tiene la solución a las lecciones:
     * Use Exception Handling to Fix Logical Errors (Part 2). Practice 12-1
     * Add Text Parsing Operations (Part 1). Practice 12-2
     * Add Text Parsing Operations (Part 2). Practice 12-2
+
+13. Java IO API
+    * Print Product Report to a File. Practice 13-1
+    * Bulk-Load Data from Files (Part 1). Practice 13-2
+    * Bulk-Load Data from Files (Part 2). Practice 13-2
+    * Implement Memory Swap Mechanism. Practice 13-3
