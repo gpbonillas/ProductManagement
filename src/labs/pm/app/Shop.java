@@ -39,23 +39,24 @@ public class Shop {
      */
     public static void main(String[] args) {
         ProductManager pm = new ProductManager("en-GB");
-
-        pm.createProduct(164, "Kombucha", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-
-        pm.reviewProduct(164, Rating.TWO_STAR, "Looks like tea but is it?");
-        pm.reviewProduct(164, Rating.FOUR_STAR, "Fine tea");
-        pm.reviewProduct(164, Rating.FOUR_STAR, "This is not tea");
-        pm.reviewProduct(164, Rating.FIVE_STAR, "Perfect!");
-        pm.printProductReport(164);
-
-        pm.printProductReport(101);
-        pm.printProductReport(104);
-
-        pm.printProducts(p -> p.getPrice().floatValue() < 2,
-                (p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal());
-
-        pm.getDiscounts().forEach((rating, discount)
-                -> System.out.println(rating + "\t" + discount)
-        );
+//
+//        //pm.printProductReport(101);        
+//        
+//        pm.createProduct(164, "Kombucha", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+//
+//        pm.reviewProduct(164, Rating.TWO_STAR, "Looks like tea but is it?");
+//        pm.reviewProduct(164, Rating.FOUR_STAR, "Fine tea");
+//        pm.reviewProduct(164, Rating.FOUR_STAR, "This is not tea");
+//        pm.reviewProduct(164, Rating.FIVE_STAR, "Perfect!");
+//
+//        pm.printProductReport(105);
+//        pm.printProductReport(164);        
+//
+//        pm.printProducts(p -> p.getPrice().floatValue() < 2,
+//                (p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal());
+//
+//        pm.getDiscounts().forEach((rating, discount)
+//                -> System.out.println(rating + "\t" + discount)
+//        );
     }
 }

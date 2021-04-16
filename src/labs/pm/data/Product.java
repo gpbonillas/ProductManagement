@@ -16,6 +16,7 @@
  */
 package labs.pm.data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import static java.math.RoundingMode.HALF_UP;
 import java.time.LocalDate;
@@ -34,7 +35,7 @@ import static labs.pm.data.Rating.*;
  * @version 4.0
  * @author gpbonillas
  */
-public abstract class Product implements Rateable<Product>{
+public abstract class Product implements Rateable<Product>, Serializable{
 
     private int id;
     private String name;
