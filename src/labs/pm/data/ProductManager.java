@@ -75,6 +75,7 @@ public class ProductManager {
 
     public ProductManager(String languageTag) {
         changeLocale(languageTag);
+        loadAllData();
     }
 
     public void changeLocale(String languageTag) {
@@ -195,7 +196,7 @@ public class ProductManager {
         return reviews;
     }
 
-    public Review parseReview(String text) {
+    private Review parseReview(String text) {
         Review review = null;
         try {
             Object[] values = reviewFormat.parse(text);
@@ -206,6 +207,18 @@ public class ProductManager {
             logger.log(Level.WARNING, "Error parsing review " + text + " " + ex.getMessage());
         }
         return review;
+    }
+    
+    private void loadAllData() {
+        try {
+            products = Files.list(dataFolder)
+                    .filter(file -> file.getFileName().toString().startsWith("product"))
+                    .map(file -> loadProduct(file))
+                    .filter(product -> product != null)
+                    .collect(Collectors.toMap(product -> product, product -> loadReviews(product)));
+        } catch (IOException ex) {
+            logger.log(Level.SEVERE, "Error loading data" + ex.getMessage());
+        }
     }
     
     private Product loadProduct(Path file) {
@@ -220,7 +233,7 @@ public class ProductManager {
         return product;
     }
 
-    public Product parseProduct(String text) {
+    private Product parseProduct(String text) {
         Product product = null;
         
         try {
@@ -257,7 +270,7 @@ public class ProductManager {
                                 )
                         )
                 );
-    }
+    }       
 
     private static class ResourceFormatter {
 

@@ -28,6 +28,7 @@ import labs.pm.data.Rating;
 
 /**
  * {@code Shop} class represents an application that manages Products
+ *
  * @version 4.0
  * @author gpbonillas
  */
@@ -37,23 +38,24 @@ public class Shop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-                
         ProductManager pm = new ProductManager("en-GB");
-        
-        pm.parseProduct("D,101,Tea,1.99,0,2019-09-19");        
-        pm.printProductReport(101);        
 
-        pm.parseReview("101,4,Nice hot cup of tea");        
-        pm.parseReview("101,2,Rather weak tea");
-        pm.parseReview("101,4,Fine tea");
-        pm.parseReview("101,4,Good tea");
-        pm.parseReview("101,5,Perfect tea!");
-        pm.parseReview("101,3,Just add some lemon");        
+        pm.createProduct(164, "Kombucha", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
+
+        pm.reviewProduct(164, Rating.TWO_STAR, "Looks like tea but is it?");
+        pm.reviewProduct(164, Rating.FOUR_STAR, "Fine tea");
+        pm.reviewProduct(164, Rating.FOUR_STAR, "This is not tea");
+        pm.reviewProduct(164, Rating.FIVE_STAR, "Perfect!");
+        pm.printProductReport(164);
+
         pm.printProductReport(101);
-        
-        pm.parseProduct("F,103,Cake,3.99,0,2019-09-19");       
-        pm.printProductReport(103);
-          
+        pm.printProductReport(104);
+
+        pm.printProducts(p -> p.getPrice().floatValue() < 2,
+                (p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal());
+
+        pm.getDiscounts().forEach((rating, discount)
+                -> System.out.println(rating + "\t" + discount)
+        );
     }
-    
 }
