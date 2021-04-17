@@ -38,9 +38,12 @@ public class Shop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ProductManager pm = new ProductManager("en-GB");
-//
-//        //pm.printProductReport(101);        
+        ProductManager pm = ProductManager.getInstance();
+        
+        pm.printProductReport(101, "en-GB");
+        pm.printProductReport(103, "ru-RU");
+
+
 //        
 //        pm.createProduct(164, "Kombucha", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
 //
