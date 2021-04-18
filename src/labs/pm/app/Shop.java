@@ -20,6 +20,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Locale;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 import labs.pm.data.Drink;
 import labs.pm.data.Food;
 import labs.pm.data.Product;
@@ -39,27 +43,37 @@ public class Shop {
      */
     public static void main(String[] args) {
         ProductManager pm = ProductManager.getInstance();
+        AtomicInteger clientCount = new AtomicInteger(0);
+        
+        Callable<String> client = () -> {
+            String clientId = "Client " + clientCount.incrementAndGet();
+            String threadName = Thread.currentThread().getName(); 
+            int productId = ThreadLocalRandom.current().nextInt(6) + 101;
+            
+            String languageTag = ProductManager.getSupportedLocales()
+                    .stream()
+                    .skip(ThreadLocalRandom.current().nextInt(4))
+                    .findFirst().get();
+            
+            StringBuilder log = new StringBuilder();
+            
+            log.append(clientId + " " + threadName + "\n-\tstart of log\t-\n");
+            
+            log.append(pm.getDiscounts(languageTag)
+            .entrySet()
+            .stream()
+            .map(entry -> entry.getKey() + "\t" + entry.getValue())
+            .collect(Collectors.joining("\n")));
+            
+            
+            log.append("\n-\tend of log\t-\n");
+            
+            return log.toString();
+        };
+        
+        
         
         pm.printProductReport(101, "en-GB");
         pm.printProductReport(103, "ru-RU");
-
-
-//        
-//        pm.createProduct(164, "Kombucha", BigDecimal.valueOf(1.99), Rating.NOT_RATED);
-//
-//        pm.reviewProduct(164, Rating.TWO_STAR, "Looks like tea but is it?");
-//        pm.reviewProduct(164, Rating.FOUR_STAR, "Fine tea");
-//        pm.reviewProduct(164, Rating.FOUR_STAR, "This is not tea");
-//        pm.reviewProduct(164, Rating.FIVE_STAR, "Perfect!");
-//
-//        pm.printProductReport(105);
-//        pm.printProductReport(164);        
-//
-//        pm.printProducts(p -> p.getPrice().floatValue() < 2,
-//                (p1, p2) -> p2.getRating().ordinal() - p1.getRating().ordinal());
-//
-//        pm.getDiscounts().forEach((rating, discount)
-//                -> System.out.println(rating + "\t" + discount)
-//        );
     }
 }
