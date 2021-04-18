@@ -51,3 +51,9 @@ Tiene la solución a las lecciones:
     * Bulk-Load Data from Files (Part 1). Practice 13-2
     * Bulk-Load Data from Files (Part 2). Practice 13-2
     * Implement Memory Swap Mechanism. Practice 13-3
+
+14. **Java Concurrency and Multithreading**
+    * Redesign ProductManager as a Singleton. Practice 14-1
+    * Ensure ProductManager Memory Safety. Practice 14-2
+    * Simulate Concurrent Callers (Part 1). Practice 14-3
+    * Simulate Concurrent Callers (Part 2). Practice 14-3
