@@ -57,3 +57,6 @@ Tiene la solución a las lecciones:
     * Ensure ProductManager Memory Safety. Practice 14-2
     * Simulate Concurrent Callers (Part 1). Practice 14-3
     * Simulate Concurrent Callers (Part 2). Practice 14-3
+
+15. **Open Module Content**
+    * Convert ProductManagement Application into a Module. Practice 15-1
